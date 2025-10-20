@@ -78,8 +78,8 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 ## 📬 Contact
 
 - **Email**: griffinsmuhavi@gmail.com
-- **LinkedIn**: [Your LinkedIn Profile](https://linkedin.com/in/muhavii)
-- **Twitter**: [@yourhandle](https://twitter.com/muhavi_)
+- **LinkedIn**: [Griffins Muteheri](https://linkedin.com/in/muhavii)
+- **Twitter**: [@muhavi_](https://twitter.com/muhavi_)
 
 ---
 
