@@ -77,9 +77,9 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## 📬 Contact
 
-- **Email**: your.email@example.com
-- **LinkedIn**: [Your LinkedIn Profile](https://linkedin.com/in/yourprofile)
-- **Twitter**: [@yourhandle](https://twitter.com/yourhandle)
+- **Email**: griffinsmuhavi@gmail.com
+- **LinkedIn**: [Your LinkedIn Profile](https://linkedin.com/in/muhavii)
+- **Twitter**: [@yourhandle](https://twitter.com/muhavi_)
 
 ---
 
