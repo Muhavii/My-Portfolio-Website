@@ -1,4 +1,4 @@
-import { Code2, Database, Cpu, Smartphone, Server, GitBranch } from 'lucide-react';
+import { Code2, Database, Cpu, Server, GitBranch } from 'lucide-react';
 
 const skills = [
   {

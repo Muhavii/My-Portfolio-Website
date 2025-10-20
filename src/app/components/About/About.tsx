@@ -17,7 +17,7 @@ export default function About() {
               Who I Am
             </h3>
             <p className="text-gray-400 mb-6">
-              I'm a passionate Full Stack Developer with a strong foundation in modern web technologies. 
+              I&apos;m a passionate Full Stack Developer with a strong foundation in modern web technologies. 
               I love turning ideas into reality through clean, efficient, and scalable code.
             </p>
             <p className="text-gray-400 mb-8">
