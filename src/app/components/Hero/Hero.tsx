@@ -1,86 +1,112 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import { ArrowRight, Download, Mouse } from 'lucide-react';
+import { motion, Variants } from 'framer-motion';
+import { ArrowRight, Eye } from 'lucide-react';
 import Link from 'next/link';
 
 const CV_PATH = '/assets/Griffins Muteheri CV.pdf';
 
+const letterVariants: Variants = {
+  hidden: {
+    opacity: 0,
+    y: 80,
+    rotateZ: -20,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    rotateZ: 0,
+    transition: {
+      duration: 0.8,
+      type: "spring",
+      stiffness: 100,
+      damping: 8,
+      mass: 1.2,
+    },
+  },
+};
+
 export default function Hero() {
+  const mainText = "Hi, I'm Griffins Muteheri";
+  const nameStart = mainText.indexOf('Griffins');
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-900 to-gray-800">
-      <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,transparent)]" />
-      
-      <div className="text-center max-w-4xl mx-auto relative z-10">
-        <motion.h1 
-          className="text-5xl sm:text-6xl md:text-7xl font-bold mb-6"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+    <motion.section
+      id="home"
+      className="outlook-card outlook-focus relative overflow-hidden p-8 md:p-12"
+      initial={{ opacity: 0, y: 24, boxShadow: "0 10px 30px rgba(15, 23, 42, 0.08)" }}
+      animate={{ opacity: 1, y: 0, boxShadow: "0 22px 55px rgba(10, 110, 209, 0.15)" }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+    >
+      <div className="absolute inset-0 outlook-sheen opacity-30" />
+      <div className="absolute -top-20 -right-10 h-56 w-56 rounded-full bg-blue-500/15 blur-3xl" />
+      <div className="absolute -bottom-20 -left-10 h-56 w-56 rounded-full bg-purple-500/10 blur-3xl" />
+
+      <div className="relative z-10 text-center max-w-4xl mx-auto">
+        <motion.h1
+          className="mt-6 text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900 leading-tight"
         >
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
-            Hi, I&apos;m Griffins Muteheri
-          </span>
+          {mainText.split('').map((char, index) => (
+            <motion.span
+              key={index}
+              variants={letterVariants}
+              initial="hidden"
+              animate="visible"
+              transition={{
+                delay: index * 0.04,
+              }}
+              className={index >= nameStart && index < nameStart + 8 ? "text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600" : ""}
+              style={{ display: 'inline-block' }}
+            >
+              {char === ' ' ? '\u00A0' : char}
+            </motion.span>
+          ))}
         </motion.h1>
-        
-        <motion.h2 
-          className="text-2xl sm:text-3xl md:text-4xl font-semibold mb-8 text-gray-300"
+
+        <motion.h2
+          className="mt-4 text-xl sm:text-2xl font-semibold text-slate-600"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
         >
-          Full Stack Developer
+          Full Stack Developer · Creative Technologist
         </motion.h2>
-        
-        <motion.p 
-          className="text-lg sm:text-xl text-gray-400 mb-12 max-w-2xl mx-auto"
+
+        <motion.p
+          className="mt-5 text-base sm:text-lg text-slate-600 max-w-2xl mx-auto"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          I build exceptional digital experiences with modern web technologies.
-          Currently focused on creating beautiful, responsive, and user-friendly applications.
+          I build elegant, high-performance web applications that feel as polished as a premium inbox; organized,
+          delightful, and effortless to use.
         </motion.p>
-        
-        <motion.div 
-          className="flex flex-col sm:flex-row gap-4 justify-center"
+
+        <motion.div
+          className="mt-8 flex flex-col sm:flex-row gap-4 justify-center"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
         >
-          <Link 
+          <Link
             href="#contact"
-            className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-medium overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/30"
+            className="group inline-flex items-center justify-center gap-2 rounded-full bg-blue-600 px-6 py-3 text-white font-semibold shadow-lg shadow-blue-500/20 hover:bg-blue-700 transition-colors"
           >
-            <span className="relative z-10 flex items-center gap-2">
-              Get in Touch
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </span>
-            <span className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity" />
+            Compose a Message
+            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </Link>
-          
+
           <a
             href={CV_PATH}
-            download
             target="_blank"
             rel="noopener noreferrer"
-            className="group px-8 py-4 bg-white/10 text-white rounded-xl font-medium hover:bg-white/20 transition-colors flex items-center justify-center gap-2 backdrop-blur-sm"
+            className="group inline-flex items-center justify-center gap-2 rounded-full border border-slate-200 bg-white px-6 py-3 text-slate-700 font-semibold hover:border-blue-200 hover:text-blue-700 transition-colors"
           >
-            <span>Download CV</span>
-            <Download className="w-5 h-5 group-hover:translate-y-0.5 transition-transform" />
+            View CV
+            <Eye className="w-5 h-5 group-hover:scale-110 transition-transform" />
           </a>
         </motion.div>
-
-        <motion.div 
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-gray-400"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.5 }}
-        >
-          <span className="text-sm">Scroll to explore</span>
-          <Mouse className="w-5 h-5 animate-bounce" />
-        </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 }
