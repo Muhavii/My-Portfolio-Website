@@ -101,7 +101,7 @@ export default function Projects() {
                 variants={item}
                 className="group relative outlook-ripple rounded-2xl overflow-hidden border border-slate-200 bg-white shadow-sm hover:shadow-2xl transition-all duration-300"
               >
-                <div className="absolute right-4 top-4 z-10 opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300">
+                <div className="absolute right-4 top-4 z-10 hidden lg:block opacity-0 scale-95 lg:group-hover:opacity-100 lg:group-hover:scale-100 transition-all duration-300">
                   <div className="outlook-peek rounded-2xl px-4 py-3 text-xs text-slate-700">
                     <p className="font-semibold text-slate-800">Quick Peek</p>
                     <p className="mt-1">Status: Live demo ready</p>
@@ -122,7 +122,7 @@ export default function Projects() {
                       <Code className="w-12 h-12 text-slate-400" />
                     </div>
                   )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 to-transparent opacity-0 hidden lg:flex lg:group-hover:opacity-100 transition-opacity items-end p-6">
                     <motion.div 
                       className="space-x-4"
                       initial={{ opacity: 0, y: 10 }}
@@ -168,6 +168,33 @@ export default function Projects() {
                   <p className="text-slate-600 mb-4 line-clamp-3">
                     {project.description}
                   </p>
+
+                  <div className="flex flex-wrap gap-3 mb-4 lg:hidden">
+                    {project.github && (
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center px-4 py-2 bg-slate-900 text-white rounded-full text-sm font-medium"
+                        aria-label="View on GitHub"
+                      >
+                        <Github className="w-4 h-4 mr-2" />
+                        Code
+                      </a>
+                    )}
+                    {project.live && project.live !== '#' && (
+                      <a
+                        href={project.live}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-full text-sm font-medium"
+                        aria-label="Live Demo"
+                      >
+                        <ExternalLink className="w-4 h-4 mr-2" />
+                        Live Demo
+                      </a>
+                    )}
+                  </div>
 
                   <div className="flex flex-wrap gap-2 mt-4">
                     {project.tags.map((tag, i) => (

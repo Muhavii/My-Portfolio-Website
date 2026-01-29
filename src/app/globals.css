@@ -111,6 +111,19 @@ body {
   transform: translateY(-2px);
 }
 
+@media (max-width: 768px) {
+  .outlook-card,
+  .outlook-focus {
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
+  }
+
+  .outlook-card:hover,
+  .outlook-focus:hover {
+    transform: none;
+    box-shadow: var(--outlook-shadow);
+  }
+}
+
 .outlook-badge {
   animation: float 5s ease-in-out infinite;
 }

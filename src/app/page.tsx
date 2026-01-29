@@ -111,10 +111,23 @@ export default function Home() {
               </a>
             </div>
           </div>
+          <div className="lg:hidden border-t border-slate-100">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 overflow-x-auto">
+              <nav className="flex items-center gap-3 min-w-max text-sm font-medium text-slate-600">
+                <a className="outlook-nav-link" href="#home">Home</a>
+                <a className="outlook-nav-link" href="#github">GitHub</a>
+                <a className="outlook-nav-link" href="#about">Profile</a>
+                <a className="outlook-nav-link" href="#skills">Skills</a>
+                <a className="outlook-nav-link" href="#education">Education</a>
+                <a className="outlook-nav-link" href="#projects">Projects</a>
+                <a className="outlook-nav-link" href="#contact">Compose</a>
+              </nav>
+            </div>
+          </div>
         </header>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 grid grid-cols-1 lg:grid-cols-[260px_1fr] gap-8">
-          <aside className="outlook-sidebar p-5 space-y-6 h-fit sticky top-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 grid grid-cols-1 lg:grid-cols-[260px_1fr] gap-6 lg:gap-8">
+          <aside className="outlook-sidebar p-5 space-y-6 h-fit sticky top-24 hidden lg:block">
             <div className="space-y-3">
               <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">Folders</h3>
               <nav className="space-y-2">
