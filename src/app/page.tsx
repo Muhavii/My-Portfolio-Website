@@ -1,6 +1,7 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { Moon, Sun } from 'lucide-react';
 import Head from 'next/head';
 import Hero from './components/Hero/Hero';
 import GitHubSection from './components/GitHub/GitHub';
@@ -11,6 +12,18 @@ import Projects from './components/Projects/Projects';
 import Contact from './components/Contact/Contact';
 
 export default function Home() {
+  const [theme, setTheme] = useState<'light' | 'dark'>('light');
+
+  useEffect(() => {
+    const storedTheme = typeof window !== 'undefined' ? localStorage.getItem('theme') : null;
+    const prefersDark = typeof window !== 'undefined'
+      ? window.matchMedia('(prefers-color-scheme: dark)').matches
+      : false;
+    const initialTheme = storedTheme === 'dark' || (!storedTheme && prefersDark) ? 'dark' : 'light';
+    setTheme(initialTheme);
+    document.documentElement.classList.toggle('theme-dark', initialTheme === 'dark');
+  }, []);
+
   // Smooth scrolling for anchor links
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -31,6 +44,15 @@ export default function Home() {
       });
     }
   }, []);
+
+  const toggleTheme = () => {
+    const nextTheme = theme === 'dark' ? 'light' : 'dark';
+    setTheme(nextTheme);
+    document.documentElement.classList.toggle('theme-dark', nextTheme === 'dark');
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('theme', nextTheme);
+    }
+  };
 
   return (
     <div className="outlook-bg">
@@ -68,6 +90,19 @@ export default function Home() {
                 Compose
                 <span aria-hidden>✉️</span>
               </a>
+              <button
+                type="button"
+                onClick={toggleTheme}
+                className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-700 hover:border-blue-200 hover:text-blue-700 transition-colors"
+                aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+              >
+                {theme === 'dark' ? (
+                  <Sun className="h-4 w-4" />
+                ) : (
+                  <Moon className="h-4 w-4" />
+                )}
+                {theme === 'dark' ? 'Light' : 'Dark'}
+              </button>
               <a
                 href="#projects"
                 className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-700 hover:border-blue-200 hover:text-blue-700 transition-colors"

@@ -12,6 +12,19 @@
   --outlook-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
 }
 
+.theme-dark {
+  --background: #0b1220;
+  --foreground: #e2e8f0;
+  --outlook-panel: #0f172a;
+  --outlook-border: #1e293b;
+  --outlook-primary: #60a5fa;
+  --outlook-primary-strong: #93c5fd;
+  --outlook-accent: #c4b5fd;
+  --outlook-muted: #94a3b8;
+  --outlook-shadow: 0 10px 30px rgba(2, 6, 23, 0.55);
+  color-scheme: dark;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
@@ -24,6 +37,13 @@ body {
     radial-gradient(900px 500px at 90% 0%, rgba(124, 58, 237, 0.12), transparent 55%),
     linear-gradient(180deg, #f7f9fc 0%, #edf2f8 100%);
   min-height: 100vh;
+}
+
+.theme-dark .outlook-bg {
+  background:
+    radial-gradient(1200px 600px at 20% -10%, rgba(96, 165, 250, 0.18), transparent 60%),
+    radial-gradient(900px 500px at 90% 0%, rgba(196, 181, 253, 0.16), transparent 55%),
+    linear-gradient(180deg, #0b1220 0%, #0f172a 100%);
 }
 
 .outlook-shell {
@@ -153,6 +173,68 @@ body {
 .outlook-nav-link:hover {
   background: rgba(10, 110, 209, 0.08);
   color: var(--outlook-primary-strong);
+}
+
+.theme-dark .outlook-topbar,
+.theme-dark .outlook-sidebar,
+.theme-dark .outlook-card,
+.theme-dark .outlook-peek {
+  background: var(--outlook-panel);
+  border-color: var(--outlook-border);
+}
+
+.theme-dark .outlook-nav-link:hover {
+  background: rgba(96, 165, 250, 0.12);
+  color: var(--outlook-primary-strong);
+}
+
+.theme-dark .outlook-highlight {
+  background: linear-gradient(135deg, rgba(96, 165, 250, 0.14), rgba(196, 181, 253, 0.14));
+  border-color: rgba(96, 165, 250, 0.35);
+}
+
+.theme-dark .bg-white {
+  background-color: #0f172a;
+}
+
+.theme-dark .bg-white\/80 {
+  background-color: rgba(15, 23, 42, 0.8);
+}
+
+.theme-dark .bg-slate-50,
+.theme-dark .bg-slate-100 {
+  background-color: #1e293b;
+}
+
+.theme-dark .border-slate-200,
+.theme-dark .border-slate-100 {
+  border-color: #1e293b;
+}
+
+.theme-dark .text-slate-900 {
+  color: #f1f5f9;
+}
+
+.theme-dark .text-slate-800 {
+  color: #e2e8f0;
+}
+
+.theme-dark .text-slate-700,
+.theme-dark .text-slate-600 {
+  color: #cbd5f5;
+}
+
+.theme-dark .text-slate-500,
+.theme-dark .text-slate-400 {
+  color: #94a3b8;
+}
+
+.theme-dark input,
+.theme-dark textarea,
+.theme-dark select {
+  background-color: #0f172a;
+  border-color: #1e293b;
+  color: #e2e8f0;
 }
 
 .outlook-highlight {
